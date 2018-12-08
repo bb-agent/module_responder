@@ -46,11 +46,11 @@ if($service != "") {
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
             //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "$bin_echo '' > $mod_logs";
             //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
     
         // ADD selected options
@@ -75,28 +75,28 @@ if($service != "") {
         if ($ifRouteOn == "") {
             $exec = "$bin_route add default gw $io_in_ip";
             //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
         
         $exec = "cd Responder-master; ./Responder.py -b On -r On -I $io_action > /dev/null 2 &";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
     } else if($action == "stop") {
         // STOP MODULE
         $exec = "pgrep -f Responder.py | xargs kill -9";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
             //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "$bin_echo '' > $mod_logs";
             //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 
     }
@@ -107,11 +107,11 @@ if ($install == "install_responder") {
 
     $exec = "chmod 755 install.sh";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header('Location: ../../install.php?module=responder');
     exit;

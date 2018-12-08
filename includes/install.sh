@@ -15,7 +15,7 @@ unzip Responder-master.zip
 /bin/sed -i 's/^HTTPS.*/HTTPS = Off/g' Responder-master/Responder.conf
 /bin/sed -i 's/^DNS.*/DNS = Off/g' Responder-master/Responder.conf
 
-/bin/sed -i 's/^SessionLog.*/SessionLog = \/usr\/share\/FruityWifi\/logs\/responder.log/g' Responder-master/Responder.conf
+/bin/sed -i 's/^SessionLog.*/SessionLog = \/usr\/share\/BlackBulb\/logs\/responder.log/g' Responder-master/Responder.conf
 
 chmod 755 Responder-master/Responder.py
 
